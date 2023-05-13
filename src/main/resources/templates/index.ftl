@@ -20,6 +20,8 @@
     <hr>
     <p>
         <a href="/articles/new">Create article</a>
+        <br>
+        <a href="">Add entity</a>
     </p>
 </@layout.header>
 </html>
