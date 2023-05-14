@@ -53,5 +53,52 @@ fun Application.configureRouting() {
                 }
             }
         }
+        route("entities") {
+            get {
+                call.respond(FreeMarkerContent("index.ftl", mapOf("entities" to dao.allEntities())))
+            }
+            get("new") {
+                call.respond(FreeMarkerContent("ent_new.ftl", model = null))
+            }
+            post {
+                val formParameters = call.receiveParameters()
+                val id = formParameters.getOrFail("id")
+                val value = formParameters.getOrFail("value")
+                val name = formParameters.getOrFail("name")
+                val description = formParameters.getOrFail("description")
+                val sectionId = formParameters.getOrFail("sectionId")
+                val order = formParameters.getOrFail<Int>("order")
+                val entity = dao.addNewEntity(id, value, name, description, sectionId, order)
+                call.respondRedirect("/entities/${entity?.id}")
+            }
+            get("{id}") {
+                val id = call.parameters.getOrFail("id")
+                call.respond(FreeMarkerContent("ent_show.ftl", mapOf("entity" to dao.entity(id))))
+            }
+            get("{id}/edit") {
+                val id = call.parameters.getOrFail("id")
+                call.respond(FreeMarkerContent("ent_edit.ftl", mapOf("entity" to dao.entity(id))))
+            }
+            post("{id}") {
+                val id = call.parameters.getOrFail("id")
+                val formParameters = call.receiveParameters()
+                when (formParameters.getOrFail("_action")) {
+                    "update" -> {
+                        val entId = formParameters.getOrFail("id")
+                        val value = formParameters.getOrFail("value")
+                        val name = formParameters.getOrFail("name")
+                        val description = formParameters.getOrFail("description")
+                        val sectionId = formParameters.getOrFail("sectionId")
+                        val order = formParameters.getOrFail<Int>("order")
+                        dao.editEntity(entId, value, name, description, sectionId, order)
+                        call.respondRedirect("/entities/$id")
+                    }
+                    "delete" -> {
+                        dao.deleteEntity(id)
+                        call.respondRedirect("/entities")
+                    }
+                }
+            }
+        }
     }
 }

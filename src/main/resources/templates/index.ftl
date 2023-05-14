@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="articles" type="kotlin.collections.List<com.example.models.Article>" -->
+<#-- @ftlvariable name="entities" type="kotlin.collections.List<com.example.models.Entity>" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +18,21 @@
             </p>
         </div>
     </#list>
+    <#list entities?reverse as entity>
+        <div>
+            <h3>
+                <a href="/entities/${entity.id}">${entity.name}</a>
+            </h3>
+            <p>
+                ${entity.description}
+            </p>
+        </div>
+    </#list>
     <hr>
     <p>
         <a href="/articles/new">Create article</a>
         <br>
-        <a href="">Add entity</a>
+        <a href="/entities/new">Create entity</a>
     </p>
 </@layout.header>
 </html>
