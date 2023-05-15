@@ -17,16 +17,6 @@
             </p>
         </div>
     </#list>
-<#--    <#list entities?reverse as entity>-->
-<#--        <div>-->
-<#--            <h3>-->
-<#--                <a href="/entities/${entity.id}">${entity.name}</a>-->
-<#--            </h3>-->
-<#--            <p>-->
-<#--                ${entity.description}-->
-<#--            </p>-->
-<#--        </div>-->
-<#--    </#list>-->
     <hr>
     <p>
         <a href="/articles/new">Create article</a>

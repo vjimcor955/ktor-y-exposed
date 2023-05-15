@@ -15,7 +15,7 @@
             ${entity.description}
         </p>
         <p>
-            ${entity.sectionId}
+            ${entity.seasonId}
         </p>
         <p>
             ${entity.order}

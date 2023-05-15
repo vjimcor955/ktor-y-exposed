@@ -4,27 +4,23 @@
         <h3>Create entity</h3>
         <form action="/entities" method="post">
             <p>
-                Id
-                <input type="text" name="id">
-            </p>
-            <p>
-                Value
+                <label for="value">Value:</label>
                 <input type="text" name="value">
             </p>
             <p>
-                Name
+                <label for="name">Name:</label>
                 <input type="text" name="name">
             </p>
             <p>
-                Description
+                <label for="description">Description:</label>
                 <textarea name="description"></textarea>
             </p>
             <p>
-                SectionId
-                <input type="text" name="sectionId">
+                <label for="seasonId">SeasonId:</label>
+                <input type="text" name="seasonId">
             </p>
             <p>
-                Order
+                <label for="order">Order:</label>
                 <input type="text" name="order">
             </p>
             <p>

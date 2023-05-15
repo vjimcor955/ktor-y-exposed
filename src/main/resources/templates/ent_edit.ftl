@@ -2,11 +2,8 @@
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <div>
-        <h3>Edit article</h3>
+        <h3>Edit entity</h3>
         <form action="/entities/${entity.id}" method="post">
-            <p>
-                <input type="text" name="id" value="${entity.id}">
-            </p>
             <p>
                 <input type="text" name="value" value="${entity.value}">
             </p>
@@ -17,7 +14,7 @@
                 <textarea name="description">${entity.description}</textarea>
             </p>
             <p>
-                <input type="text" name="sectionId" value="${entity.sectionId}">
+                <input type="text" name="seasonId" value="${entity.seasonId}">
             </p>
             <p>
                 <input type="text" name="order" value="${entity.order}">
