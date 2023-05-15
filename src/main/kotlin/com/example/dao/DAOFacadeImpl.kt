@@ -100,7 +100,9 @@ val dao: DAOFacade = DAOFacadeImpl().apply {
     runBlocking {
         if(allArticles().isEmpty()) {
             addNewArticle("The drive to develop!", "...it's what keeps me going.")
-            addNewEntity("1", "Valor", "Ejemplo", "Descripcion", "SectionId", 1)
+        }
+        if (allEntities().isEmpty()) {
+            addNewEntity("Id", "Valor", "Ejemplo", "Descripcion", "SectionId", 1)
         }
     }
 }

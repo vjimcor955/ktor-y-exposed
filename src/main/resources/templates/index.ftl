@@ -5,7 +5,6 @@
 <head>
     <title>Kotlin Journal</title>
 </head>
-<#-- @ftlvariable name="articles" type="kotlin.collections.List<com.example.models.Article>" -->
 <#import "_layout.ftl" as layout />
 <@layout.header>
     <#list articles?reverse as article>
@@ -18,16 +17,16 @@
             </p>
         </div>
     </#list>
-    <#list entities?reverse as entity>
-        <div>
-            <h3>
-                <a href="/entities/${entity.id}">${entity.name}</a>
-            </h3>
-            <p>
-                ${entity.description}
-            </p>
-        </div>
-    </#list>
+<#--    <#list entities?reverse as entity>-->
+<#--        <div>-->
+<#--            <h3>-->
+<#--                <a href="/entities/${entity.id}">${entity.name}</a>-->
+<#--            </h3>-->
+<#--            <p>-->
+<#--                ${entity.description}-->
+<#--            </p>-->
+<#--        </div>-->
+<#--    </#list>-->
     <hr>
     <p>
         <a href="/articles/new">Create article</a>
