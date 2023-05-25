@@ -10,10 +10,12 @@
             <p>Season ID: ${entity.seasonId}</p>
             <p>Order: ${entity.order}</p>
             <p>Description: ${entity.value}</p>
+            <p>Section ID: ${entity.sectionId}</p>
         </div>
     </#list>
     <hr>
     <p>
+        <a href="/articles/new">Create article</a>
         <a href="/entities/new">Create entity</a>
     </p>
 </@layout.header>

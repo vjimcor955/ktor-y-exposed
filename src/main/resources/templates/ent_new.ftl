@@ -24,6 +24,10 @@
                 <input type="text" name="order">
             </p>
             <p>
+                <label for="sectionId">SectionId:</label>
+                <input type="text" name="sectionId">
+            </p>
+            <p>
                 <input type="submit">
             </p>
         </form>

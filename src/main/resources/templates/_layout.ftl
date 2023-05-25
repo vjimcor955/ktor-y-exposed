@@ -12,6 +12,7 @@
     <hr>
     <#nested>
     <a href="/">Back to the main page</a>
+    <a href="/entities"> Back to the entities page</a>
     </body>
     </html>
 </#macro>

@@ -31,7 +31,7 @@ fun Application.configureRouting() {
             }
             get("{id}") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
-                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to dao.article(id))))
+                call.respond(FreeMarkerContent("show.ftl", mapOf("article" to dao.article(id), "entities" to daoEntity.showEntity(id))))
             }
             get("{id}/edit") {
                 val id = call.parameters.getOrFail<Int>("id").toInt()
@@ -56,7 +56,7 @@ fun Application.configureRouting() {
         }
         route("entities") {
             get {
-                call.respond(FreeMarkerContent("index.ftl", mapOf("entities" to daoEntity.allEntities())))
+                call.respond(FreeMarkerContent("ent_index.ftl", mapOf("entities" to daoEntity.allEntities())))
             }
 
             get("new") {
@@ -69,7 +69,8 @@ fun Application.configureRouting() {
                 val description = formParameters.getOrFail("description")
                 val seasonId = formParameters.getOrFail("seasonId")
                 val order = formParameters.getOrFail<Int>("order").toInt()
-                val entity = daoEntity.addNewEntity(value, name, description, seasonId, order)
+                val sectionId = formParameters.getOrFail<Int>("sectionId").toInt()
+                val entity = daoEntity.addNewEntity(value, name, description, seasonId, order, sectionId)
                 call.respondRedirect("/entities/${entity?.id}")
             }
 
@@ -91,7 +92,8 @@ fun Application.configureRouting() {
                         val description = formParameters.getOrFail("description")
                         val seasonId = formParameters.getOrFail("seasonId")
                         val order = formParameters.getOrFail<Int>("order").toInt()
-                        daoEntity.editEntity(id, value, name, description, seasonId, order)
+                        val sectionId = formParameters.getOrFail<Int>("sectionId").toInt()
+                        daoEntity.editEntity(id, value, name, description, seasonId, order, sectionId)
                         call.respondRedirect("/entities/$id")
                     }
                     "delete" -> {

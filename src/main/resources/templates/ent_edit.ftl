@@ -20,6 +20,9 @@
                 <input type="text" name="order" value="${entity.order}">
             </p>
             <p>
+                <input type="text" name="sectionId" value="${entity.sectionId}">
+            </p>
+            <p>
                 <input type="submit" name="_action" value="update">
             </p>
         </form>

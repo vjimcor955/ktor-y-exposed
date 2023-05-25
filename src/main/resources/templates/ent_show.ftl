@@ -20,6 +20,9 @@
         <p>
             ${entity.order}
         </p>
+        <p>
+            ${entity.sectionId}
+        </p>
         <hr>
         <p>
             <a href="/entities/${entity.id}/edit">Edit entity</a>
