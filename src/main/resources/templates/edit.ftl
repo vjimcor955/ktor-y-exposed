@@ -14,9 +14,9 @@
                 <input type="submit" name="_action" value="update">
             </p>
         </form>
-    </div>
+    </div>er
     <div>
-        <form action="/articles/${article.id}" method="post" onsubmit="return confirm('Are you sure you want to delete this article?')">
+        <form action="/articles/${article.id}" method="post" onsubmit="return deleteArticle()">
             <p>
                 <input type="submit" name="_action" value="delete" >
             </p>

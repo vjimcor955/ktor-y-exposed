@@ -3,6 +3,7 @@
     <html lang="en">
     <head>
         <title>Kotlin Journal</title>
+        <script src="/static/deleteArticle.js"></script>
     </head>
     <body style="text-align: center; font-family: sans-serif">
 <#--    <img src="/static/ktor_logo.png" alt="Logo de Ktor">-->
